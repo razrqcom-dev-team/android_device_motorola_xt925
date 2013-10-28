@@ -36,6 +36,10 @@ PRODUCT_LOCALES += xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Nfc
+PRODUCT_PACKAGES += \
+    nfc.msm8960
+
 # QCOM Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
@@ -48,11 +52,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.no_wait_for_card=1 \
 	persist.radio.call_type=1 \
 	persist.radio.apm_sim_not_pwdn=1 \
-	persist.radio.dfr_mode_set=1 \
-	ro.telephony.ril.v3=signalstrength
+	persist.radio.dfr_mode_set=1
 
-$(call inherit-product, device/motorola/msm8960-common/idc/idc.mk)
-$(call inherit-product, device/motorola/msm8960-common/keychars/keychars.mk)
-$(call inherit-product, device/motorola/msm8960-common/keylayout/keylayout.mk)
-$(call inherit-product, device/motorola/msm8960-common/modules/nfc/nfc.mk)
-$(call inherit-product-if-exists, vendor/motorola/xt925/xt925-vendor.mk)
+$(call inherit-product, device/motorola/qcom-common/idc/idc.mk)
+$(call inherit-product, device/motorola/qcom-common/keychars/keychars.mk)
+$(call inherit-product, device/motorola/qcom-common/keylayout/keylayout.mk)
+$(call inherit-product, device/motorola/qcom-common/modules/nfc/nfc.mk)
+$(call inherit-product, vendor/motorola/xt925/xt925-vendor.mk)
